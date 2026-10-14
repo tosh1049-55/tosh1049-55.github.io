@@ -8,108 +8,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #ffffff;
-    --text: #1a1a1a;
-    --muted: #6b6b6b;
-    --line: #e6e6e6;
-    --accent: #8c1c2b; /* 早稲田えんじ */
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #141414;
-      --text: #ececec;
-      --muted: #9a9a9a;
-      --line: #2c2c2c;
-      --accent: #e0707f;
-    }
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; transition: text-decoration-color .15s; }
-  a:hover { text-decoration-color: var(--accent); }
-
-  .wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
-
-  /* nav */
-  header.site {
-    display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 24px;
-    padding: 32px 0 0;
-  }
-  header.site .brand { font-weight: 700; text-decoration: none; letter-spacing: .01em; }
-  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 20px; }
-  nav a { text-decoration: none; color: var(--muted); font-size: 14px; }
-  nav a:hover { color: var(--text); }
-
-  /* hero */
-  .hero { padding: 80px 0 40px; display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: start; }
-  .hero .photo { grid-column: 2; grid-row: 1; width: 100%; height: auto; border-radius: 6px; display: block; }
-  .hero .hero-text { grid-column: 1; grid-row: 1; min-width: 0; }
-  .hero h1 { font-size: clamp(36px, 7vw, 52px); line-height: 1.2; margin: 0; font-weight: 700; letter-spacing: .02em; }
-  .hero .reading { color: var(--muted); font-size: 15px; margin: 8px 0 0; letter-spacing: .05em; }
-  .hero .tagline { font-size: 18px; margin: 24px 0 0; }
-  .hero .intro { margin: 24px 0 0; }
-
-  section { padding: 40px 0; border-top: 1px solid var(--line); }
-  section h2 {
-    font-size: 13px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--muted); margin: 0 0 20px;
-  }
-
-  /* entries: bold title – description */
-  .entries { list-style: none; margin: 0; padding: 0; }
-  .entries li { margin: 0 0 14px; }
-  .entries li:last-child { margin-bottom: 0; }
-  .entries b { font-weight: 700; }
-  .stack { display: block; color: var(--muted); font-size: 13px; margin-top: 6px; }
-
-  /* timeline */
-  .timeline { list-style: none; margin: 0; padding: 0; }
-  .timeline li { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 6px 0; }
-  .timeline .year { color: var(--muted); font-variant-numeric: tabular-nums; }
-
-  /* research card */
-  .paper .title { font-weight: 700; font-size: 17px; line-height: 1.6; margin: 0; }
-  .paper .meta { color: var(--muted); font-size: 14px; margin: 4px 0 14px; }
-  .paper p { margin: 0 0 12px; }
-  .badge {
-    display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent);
-    border: 1px solid currentColor; border-radius: 999px; padding: 1px 10px; margin-left: 6px; vertical-align: 2px;
-  }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
-  .tags li { font-size: 14px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; }
-
-  footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
-  footer .links { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-bottom: 12px; }
-  footer .links a { color: var(--text); }
-
-  @media (max-width: 600px) {
-    .hero { grid-template-columns: 1fr; gap: 28px; }
-    .hero .photo { grid-column: 1; width: 180px; }
-    .hero .hero-text { grid-row: 2; }
-  }
-  @media (max-width: 480px) {
-    .hero { padding: 56px 0 32px; }
-    .timeline li { grid-template-columns: 52px 1fr; gap: 12px; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
+<link rel="alternate" hreflang="ja" href="https://tosh1049-55.github.io/">
+<link rel="alternate" hreflang="en" href="https://tosh1049-55.github.io/en/">
 </head>
 <body>
 <div class="wrap">
 
   <header class="site">
     <a class="brand" href="#">Toshiki Yanagawa</a>
+    <div class="right">
     <nav>
       <ul>
         <li><a href="#about">about</a></li>
@@ -118,6 +26,8 @@
         <li><a href="#contact">contact</a></li>
       </ul>
     </nav>
+    <div class="lang"><span aria-current="true">日本語</span><span>/</span><a href="en/" hreflang="en" lang="en">English</a></div>
+    </div>
   </header>
 
   <main>
