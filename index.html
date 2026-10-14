@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>柳川毅力 | Toshiki Yanagawa</title>
+<meta name="description" content="柳川毅力（やながわとしき）のポートフォリオ。早稲田大学基幹理工学部。Interpretability・Mixture of Experts に関心。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e6e6e6;
+    --accent: #8c1c2b; /* 早稲田えんじ */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141414;
+      --text: #ececec;
+      --muted: #9a9a9a;
+      --line: #2c2c2c;
+      --accent: #e0707f;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", "Noto Sans JP", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; transition: text-decoration-color .15s; }
+  a:hover { text-decoration-color: var(--accent); }
+
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+
+  /* nav */
+  header.site {
+    display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 24px;
+    padding: 32px 0 0;
+  }
+  header.site .brand { font-weight: 700; text-decoration: none; letter-spacing: .01em; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 20px; }
+  nav a { text-decoration: none; color: var(--muted); font-size: 14px; }
+  nav a:hover { color: var(--text); }
+
+  /* hero */
+  .hero { padding: 80px 0 40px; display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: start; }
+  .hero .photo { grid-column: 2; grid-row: 1; width: 100%; height: auto; border-radius: 6px; display: block; }
+  .hero .hero-text { grid-column: 1; grid-row: 1; min-width: 0; }
+  .hero h1 { font-size: clamp(36px, 7vw, 52px); line-height: 1.2; margin: 0; font-weight: 700; letter-spacing: .02em; }
+  .hero .reading { color: var(--muted); font-size: 15px; margin: 8px 0 0; letter-spacing: .05em; }
+  .hero .tagline { font-size: 18px; margin: 24px 0 0; }
+  .hero .intro { margin: 24px 0 0; }
+
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  section h2 {
+    font-size: 13px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 20px;
+  }
+
+  /* entries: bold title – description */
+  .entries { list-style: none; margin: 0; padding: 0; }
+  .entries li { margin: 0 0 14px; }
+  .entries li:last-child { margin-bottom: 0; }
+  .entries b { font-weight: 700; }
+  .stack { display: block; color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+  /* timeline */
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 6px 0; }
+  .timeline .year { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* research card */
+  .paper .title { font-weight: 700; font-size: 17px; line-height: 1.6; margin: 0; }
+  .paper .meta { color: var(--muted); font-size: 14px; margin: 4px 0 14px; }
+  .paper p { margin: 0 0 12px; }
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 500; color: var(--accent);
+    border: 1px solid currentColor; border-radius: 999px; padding: 1px 10px; margin-left: 6px; vertical-align: 2px;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .tags li { font-size: 14px; border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-bottom: 12px; }
+  footer .links a { color: var(--text); }
+
+  @media (max-width: 600px) {
+    .hero { grid-template-columns: 1fr; gap: 28px; }
+    .hero .photo { grid-column: 1; width: 180px; }
+    .hero .hero-text { grid-row: 2; }
+  }
+  @media (max-width: 480px) {
+    .hero { padding: 56px 0 32px; }
+    .timeline li { grid-template-columns: 52px 1fr; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site">
+    <a class="brand" href="#">Toshiki Yanagawa</a>
+    <nav>
+      <ul>
+        <li><a href="#about">about</a></li>
+        <li><a href="#research">research</a></li>
+        <li><a href="#works">works</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="about">
+      <img class="photo" src="images/profile.jpg" alt="柳川毅力の写真" width="381" height="476">
+      <div class="hero-text">
+      <h1>柳川 毅力</h1>
+      <p class="reading">やながわ としき ・ Toshiki Yanagawa</p>
+      <p class="tagline">早稲田大学 基幹理工学部 1年。</p>
+      <p class="intro">高校では有限ブーリアン環上のグレブナー基底の理論を研究しました。現在は、大規模言語モデルの内部で何が起きているのかを解き明かすInterpretability と、Mixture of Experts（MoE）に関心を持っています。<a href="https://wasedaaiclub.com/">早稲田大学AI研究会</a>に所属しています。</p>
+      </div>
+    </div>
+
+    <section id="research">
+      <h2>Research</h2>
+      <div class="paper">
+        <p class="title">ブーリアングレブナー基底の理論構築とその性質に関する研究<span class="badge">早稲田大学本庄高等学院賞</span></p>
+        <p class="meta">卒業論文 ・ 早稲田大学本庄高等学院 ・ 2026 ・ 指導教員：太田洋平先生</p>
+        <p>対象を有限ブーリアン環上の多項式環に限定し、学部レベルの代数学の知識で理解できる初等的な視点から、ブーリアングレブナー基底の理論を再構成しました。</p>
+        <p>有限ブーリアン環が atomic な元の直和に分解できることに着目し、atomic な元による「制限」を導入しました。制限された環 𝔹<sub>e</sub> が有限体 ℤ/2ℤ と同型になることを使い、零因子を含むブーリアン環上の問題を成分ごとの体上の問題へ帰着させます。これにより、先行研究が用いる局所環の理論を使わずに、ブーリアン環上の Buchberger の判定法を体上の判定法と対応づけて証明しました。</p>
+      </div>
+    </section>
+
+    <section id="works">
+      <h2>Works</h2>
+      <ul class="entries">
+        <li>
+          <b><a href="https://share-note-ulbv.onrender.com">WaseNote</a></b> – 早稲田大学の学生が授業ノートを共有し、教え合い、学生生活の予定を一か所で管理できるサービス。ノートへの間違いの指摘や「試験に出そう」投票で学び合え、Moodle の課題を取り込んだ時間割・To Do・カレンダーも備えます。Web と iPhone / iPad アプリで提供し、iPad の手書きノートや Notion・PDF の取り込みにも対応。早稲田のメールアドレスでのみログインできます。
+          <span class="stack">FastAPI · HTMX · PostgreSQL · Cloudflare R2 · Render</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Interests</h2>
+      <ul class="tags">
+        <li>Interpretability</li>
+        <li>Mixture of Experts</li>
+        <li>計算機代数</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ul class="timeline">
+        <li><span class="year">2026</span><span>早稲田大学 基幹理工学部 入学</span></li>
+        <li><span class="year">2026</span><span>早稲田大学本庄高等学院 卒業</span></li>
+        <li><span class="year">2023</span><span>早稲田大学本庄高等学院 入学</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Awards</h2>
+      <ul class="timeline">
+        <li><span class="year">2026</span><span>早稲田大学本庄高等学院賞（卒業論文）</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Affiliations</h2>
+      <ul class="entries">
+        <li><b><a href="https://wasedaaiclub.com/">早稲田大学AI研究会</a></b></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="links">
+      <a href="https://github.com/tosh1049-55">GitHub</a>
+      <a href="mailto:more4abc@gmail.com">more4abc@gmail.com</a>
+    </div>
+    <div>© 2026 Toshiki Yanagawa</div>
+  </footer>
+
+</div>
+</body>
+</html>
